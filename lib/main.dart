@@ -4,6 +4,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:tflite/tflite.dart';
 
 void main() => runApp(MaterialApp(
+  theme: ThemeData.dark(),
   home: MyApp(),
 ));
 
@@ -33,7 +34,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Teachable Machine Learning'),
+        title: Center(child: const Text('Teachable Machine Learning')),
       ),
       body: _loading
           ? Container(
@@ -46,7 +47,7 @@ class _MyAppState extends State<MyApp> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            _image == null ? Container() : Image.file(_image),
+            _image == null ? Container() : Flexible( flex: 2, child: Image.file(_image)),
             SizedBox(
               height: 20,
             ),
@@ -56,7 +57,7 @@ class _MyAppState extends State<MyApp> {
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 20.0,
-                background: Paint()..color = Colors.white,
+                background: Paint()..color = Colors.cyan,
               ),
             )
                 : Container()
